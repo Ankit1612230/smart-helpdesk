@@ -4,6 +4,7 @@ import ticket_service.ticket_service.dto.TicketResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ticket_service.ticket_service.entity.Ticket;
+import ticket_service.ticket_service.exception.TicketNotFoundException;
 import ticket_service.ticket_service.repository.TicketRepository;
 import ticket_service.ticket_service.entity.TicketStatus;
 
@@ -24,7 +25,7 @@ public class TicketService {
     }
     public TicketResponse getTicketById(Long id) {
         Ticket ticket = ticketRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Ticket not found: " + id));
+                .orElseThrow(() -> new TicketNotFoundException("Ticket not found with id: " + id));
         return mapToResponse(ticket);
     }
     private TicketResponse mapToResponse(Ticket ticket){
