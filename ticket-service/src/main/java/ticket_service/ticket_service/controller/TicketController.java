@@ -30,5 +30,15 @@ public class TicketController {
     public TicketResponse getTicketById(@PathVariable Long id){
         return ticketService.getTicketById(id);
     }
+    @PutMapping("/{id}")
+    public TicketResponse updateTicket(@PathVariable Long id,@Valid @RequestBody TicketRequest request){
+        return ticketService.updateTicket(id,request);
+    }
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteTicket(@PathVariable Long id){
+        ticketService.deleteTicket(id);
+    }
+
 
 }

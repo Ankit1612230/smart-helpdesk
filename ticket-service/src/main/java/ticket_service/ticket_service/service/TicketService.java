@@ -28,6 +28,20 @@ public class TicketService {
                 .orElseThrow(() -> new TicketNotFoundException("Ticket not found with id: " + id));
         return mapToResponse(ticket);
     }
+    public TicketResponse updateTicket(Long id,TicketRequest request){
+        Ticket ticket=ticketRepository.findById(id).orElseThrow(()-> new TicketNotFoundException("Ticket Not found with Id"+ id));
+        ticket.setTitle(request.getTitle());
+        ticket.setDescription(request.getDescription());
+
+        Ticket updated=ticketRepository.save(ticket);
+        return mapToResponse(updated);
+    }
+    public void deleteTicket(Long id) {
+        if (!ticketRepository.existsById(id)) {
+            throw new TicketNotFoundException("Ticket not found with id: " + id);
+        }
+        ticketRepository.deleteById(id);
+    }
     private TicketResponse mapToResponse(Ticket ticket){
         return TicketResponse.builder()
                 .id(ticket.getId())
