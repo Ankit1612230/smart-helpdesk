@@ -9,7 +9,6 @@ import ticket_service.ticket_service.dto.TicketResponse;
 import ticket_service.ticket_service.service.TicketService;
 
 import java.util.List;
-@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/tickets")
 @RequiredArgsConstructor
