@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-@RequiredArgsConstructor
 public class TicketEventListener {
 
     private final ChatClient chatClient;

@@ -23,7 +23,10 @@ public class Ticket {
 
     @Enumerated(EnumType.STRING)
     private TicketCategory category; // will be set by AI later, nullable for now
+    private String sentiment;
 
+    @Column(length = 2000)
+    private String suggestedReply;
     private String createdBy;
 
     private LocalDateTime createdAt;
