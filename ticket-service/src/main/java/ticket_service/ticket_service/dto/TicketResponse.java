@@ -15,7 +15,8 @@ public class TicketResponse {
     private String description;
     private TicketStatus status;
     private TicketCategory category;
+    private String sentiment;
+    private String suggestedReply;
     private String createdBy;
     private LocalDateTime createdAt;
-
 }

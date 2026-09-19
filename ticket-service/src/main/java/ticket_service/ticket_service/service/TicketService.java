@@ -55,6 +55,8 @@ public class TicketService {
                 .description(ticket.getDescription())
                 .status(ticket.getStatus())
                 .category(ticket.getCategory())
+                .sentiment(ticket.getSentiment())
+                .suggestedReply(ticket.getSuggestedReply())
                 .createdBy(ticket.getCreatedBy())
                 .createdAt(ticket.getCreatedAt())
                 .build();
