@@ -1,4 +1,4 @@
-package com.ai_service.ai_service.event;
+package com.notification_service.notification_service.event;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

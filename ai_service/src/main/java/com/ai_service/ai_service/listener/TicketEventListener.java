@@ -46,7 +46,8 @@ public class TicketEventListener {
         log.info("AI analysis for ticket {}: {}", event.getTicketId(), analysis);
 
         ticketEventProducer.publishTicketEnriched(
-                new TicketEnrichedEvent(event.getTicketId(), analysis.category(), analysis.sentiment(), analysis.suggestedReply())
+                new TicketEnrichedEvent(event.getTicketId(), analysis.category(), analysis.sentiment(),
+                        analysis.suggestedReply(), event.getCreatedBy())
         );
     }
 }
