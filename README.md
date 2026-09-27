@@ -22,6 +22,7 @@ flowchart TD
     TicketEnriched -- consumed by --> NotificationService["Notification Service :8083"]
 ```
 
+**Flow:** a ticket is created → `ticket-service` saves it and publishes `ticket-created` → `ai-service` consumes it, calls Groq (via Spring AI) to classify category/sentiment and draft a reply, then publishes `ticket-enriched` → both `ticket-service` (updates the DB row) and `notification-service` (sends a notification) consume that event independently, in parallel — neither one knows the other exists.
 
 ## Tech Stack
 
